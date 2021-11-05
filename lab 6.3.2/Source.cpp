@@ -9,7 +9,7 @@ void Init(int* b, const int n, const int A, const int B, int i)
 {
 	if (i < n)
 	{
-		b[i] = A + rand() % ( B - A + 1);
+		b[i] = -10 + rand() % 31;
 		return Init(b, n, A, B, i + 1);
 	}
 }
@@ -19,7 +19,7 @@ void Init(T* b, const int n, const int A, const int B, int i)
 {
 	if (i < n)
 	{
-		b[i] = A + rand() % (B - A + 1);
+		b[i] = -10 + rand() % 31;
 		return Init(b, n, A, B, i + 1);
 	}
 }
@@ -66,9 +66,9 @@ int main()
 	int* b = new int[n];
 	int A = -10;
 	int B = 20;
-	Init(b, n, A, B, 0);
-	Print(b, n, 0);
-	Sum(b, n, 0);
+	Init<int>(b, n, A, B, 0);
+	Print<int>(b, n, 0);
+	Sum<int>(b, n, 0);
 	cout << "S = " << Sum(b, n, 0) << endl;
 	delete[] b;
 	b = nullptr;
