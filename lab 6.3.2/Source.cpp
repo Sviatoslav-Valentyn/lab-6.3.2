@@ -5,22 +5,22 @@
 
 using namespace std;
 
-void Init(int* b, const int n, const int A, const int B, int i)
+void Init(int* b, const int n, int i)
 {
 	if (i < n)
 	{
 		b[i] = -10 + rand() % 31;
-		return Init(b, n, A, B, i + 1);
+		return Init(b, n, i + 1);
 	}
 }
 
 template<typename T>
-void Init(T* b, const int n, const int A, const int B, int i)
+void Init(T* b, const int n, int i)
 {
 	if (i < n)
 	{
 		b[i] = -10 + rand() % 31;
-		return Init(b, n, A, B, i + 1);
+		return Init(b, n, i + 1);
 	}
 }
 
@@ -50,7 +50,7 @@ int Sum(int b[], const int n,int i)
 }
 
 template<typename T>
-int Sum(T b[], const int n,int i)
+T Sum(T b[], const int n,int i)
 {
 	if (i < n)
 	     return b[i] + Sum(b, n, i + 1);
@@ -64,9 +64,7 @@ int main()
 	int n;
 	cout << "n = "; cin >> n;
 	int* b = new int[n];
-	int A = -10;
-	int B = 20;
-	Init<int>(b, n, A, B, 0);
+	Init<int>(b, n, 0);
 	Print<int>(b, n, 0);
 	Sum<int>(b, n, 0);
 	cout << "S = " << Sum(b, n, 0) << endl;
